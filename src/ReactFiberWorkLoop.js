@@ -54,7 +54,7 @@ function performUnitOfWork() {
       break;
   }
 
-  // 2. 更新wip 深度优先遍历 （王朝的故事）
+  // 2. 更新wip 深度优先遍历
   if (wip.child) {
     wip = wip.child;
     return;
@@ -97,9 +97,9 @@ function commitWorker(wip) {
     commitDeletions(wip.deletions, stateNode || parentNode);
   }
 
-  // 2.
+  // 2. 下一个孩子
   commitWorker(wip.child);
-  // 3.
+  // 3. 下一个兄弟
   commitWorker(wip.sibling);
 }
 
@@ -130,9 +130,11 @@ function workLoop(IdleDeadLine) {
   }
 }
 
+// react scheduler 部分原生实现了一套：浏览器空闲时间段内调用函数排队
 requestIdleCallback(workLoop);
 
 function getParentNode(wip) {
+  // 自定义组件没有实体，return里全是child，需往上找父组件
   let tem = wip;
   while (tem) {
     if (tem.stateNode) {

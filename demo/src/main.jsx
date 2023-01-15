@@ -1,15 +1,9 @@
-// import React from "react";
-// import ReactDOM from "react-dom";
 import { ReactDOM, Component, useReducer } from "../which-react";
 
 import "./index.css";
 
-// fiber.memorizedState(hook0)->next(hook1)->next(hook2)
-// hooks { state, setState, deps}
 function FunctionComponent(props) {
-  const [count, setCount] = useReducer((x) => x + 1, 0); //hooks0
-  // const [count1, setCount1] = useReducer((x) => x + 1, 0); //hooks1
-  // const [count2, setCount2] = useReducer((x) => x + 1, 0); //hooks2
+  const [count, setCount] = useReducer((x) => x + 1, 0); //hooks0，可以读取state的值，并且延后执行
 
   return (
     <div className="border">
@@ -50,6 +44,7 @@ const jsx = (
     <FunctionComponent name="函数组件" />
     <ClassComponent name="类组件" />
     <FragmentComponent />
+    我是文本
   </div>
 );
 

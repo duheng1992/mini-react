@@ -23,13 +23,6 @@ function updateContainer(element, container) {
 }
 
 function createRoot(container) {
-  //   console.log("container", container); //sy-log
-  //   return {
-  //     render: (element) => {
-  //       console.log("element", element); //sy-log
-  //     },
-  //   };
-
   const root = {
     containerInfo: container,
   };

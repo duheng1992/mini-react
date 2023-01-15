@@ -13,6 +13,7 @@ export function updateHostComponent(wip) {
   reconcileChildren(wip, wip.props.children);
 }
 
+// 纯文本节点
 export function updateTextComponent(wip) {
   wip.stateNode = document.createTextNode(wip.props.children);
 }
@@ -45,10 +46,6 @@ function deleteChild(returnFiber, childToDelete) {
     returnFiber.deletions = [childToDelete];
   }
 }
-// todo
-// 协调子节点
-// list 132
-// arr  23
 
 function reconcileChildren(wip, children) {
   if (isStringOrNumber(children)) {
@@ -64,7 +61,7 @@ function reconcileChildren(wip, children) {
     const newChild = newChildren[i];
     const newFiber = createFiber(newChild, wip);
 
-    if (newFiber == null) {
+    if (newFiber === null) {
       continue;
     }
 
@@ -87,6 +84,7 @@ function reconcileChildren(wip, children) {
     }
 
     if (previousNewFiber === null) {
+      // 头结点
       wip.child = newFiber;
     } else {
       previousNewFiber.sibling = newFiber;
