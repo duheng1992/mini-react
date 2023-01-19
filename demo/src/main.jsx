@@ -38,13 +38,15 @@ function FragmentComponent() {
 }
 
 const jsx = (
-  <div className="border">
+  <div className="border" title="1111">
     <h1>react</h1>
     <a href="https://github.com/bubucuo/mini-react">mini react</a>
     <FunctionComponent name="函数组件" />
     <ClassComponent name="类组件" />
     <FragmentComponent />
     我是文本
+    {null}
+    {undefined}
   </div>
 );
 

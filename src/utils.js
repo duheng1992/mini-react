@@ -44,6 +44,7 @@ export function isArray(arr) {
 // prev  {a: 1}
 // next { b: 3}
 export function updateNode(node, prevVal, nextVal) {
+
   Object.keys(prevVal)
     // .filter(k => k !== "children")
     .forEach((k) => {

@@ -59,11 +59,11 @@ function reconcileChildren(wip, children) {
   let oldFiber = wip.alternate?.child;
   for (let i = 0; i < newChildren.length; i++) {
     const newChild = newChildren[i];
-    const newFiber = createFiber(newChild, wip);
-
-    if (newFiber === null) {
+    if (!newChild) {
+      // 规避这样的写法： {null}
       continue;
     }
+    const newFiber = createFiber(newChild, wip);
 
     const same = sameNode(newFiber, oldFiber);
 

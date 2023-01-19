@@ -49,6 +49,6 @@ export function createFiber(vnode, returnFiber) {
   } else {
     fiber.tag = Fragment;
   }
-
+  console.log(fiber)
   return fiber;
 }

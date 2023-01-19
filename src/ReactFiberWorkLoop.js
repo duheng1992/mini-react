@@ -84,7 +84,7 @@ function commitWorker(wip) {
   // 1. 自己
   const { stateNode, flags } = wip;
   // 父dom节点
-  const parentNode = getParentNode(wip.return); //wip.return.stateNode;
+  const parentNode = getParentNode(wip.return); // wip.return.stateNode;
 
   if (flags & Placement && stateNode) {
     parentNode.appendChild(stateNode);
@@ -119,6 +119,7 @@ function getStateNode(fiber) {
 }
 
 function workLoop(IdleDeadLine) {
+  // console.log(wip, IdleDeadLine.timeRemaining())
   while (wip && IdleDeadLine.timeRemaining() > 0) {
     performUnitOfWork();
   }
